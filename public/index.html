@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+const user = sessionStorage.getItem("user");
+if (!user) {
+    window.location.replace("loginwasher.html"); // redirect if not logged in
+}
+</script>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Laundry Manager</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/feather-icons"></script>
+</head>
+
+<body class="dashboard">
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h2>Hotel Panel</h2>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="#">Laundry Orders</a>
+    <a href="#">Rooms</a>
+    <a href="#">Reports</a>
+    <a href="#" onclick="logout()">Logout</a>
+</div>
+
+<!-- Main content -->
+<div class="dashboard-cokontent">
+
+<header>
+    <h1>Laundry Dashboard</h1>
+</header>
+
+<!-- Stats -->
+<div class="stats">
+    <div class="stat">
+        <h3 id="totalCustomers">0</h3>
+        <p>Customers</p>
+    </div>
+    <div class="stat">
+        <h3 id="readyCount">0</h3>
+        <p>Ready Orders</p>
+    </div>
+    <div class="stat">
+        <h3 id="paidCount">0</h3>
+        <p>Payments Done</p>
+    </div>
+</div>
+
+<!-- Dashboard -->
+<div class="dashboard">
+
+<div class="form">
+    <h2>Add Customer</h2>
+    <input id="name" placeholder="Customer Name">
+    <input id="room" placeholder="Room Number">
+    <button onclick="addCustomer()">Add Customer</button>
+</div>
+
+<div class="list">
+    <h2>Customers</h2>
+    <input id="search" placeholder="Search..." onkeyup="searchCustomer()">
+    <div id="customerList"></div>
+</div>
+
+<div class="delete-section">
+    <h2>Delete Customer</h2>
+    <input id="deleteName" placeholder="Enter Customer Name to Delete">
+    <button onclick="deleteCustomer()">Delete Customer</button>
+</div>
+
+
+</div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="washer.js"></script>
+<script src="loginwasher.js"></script>
+<script>
+  feather.replace();
+</script>
+
+</body>
+</html>
